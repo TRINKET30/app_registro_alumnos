@@ -1,7 +1,12 @@
 import { RouterModule } from '@angular/router';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { AuthService } from '@app/pages/users/services/auth.service';
 import { Observable } from 'rxjs';
@@ -57,8 +62,9 @@ export class AuthFormComponent implements OnInit {
 
   onSubmit(): void {
     const { email, password } = this.form.value;
-    this.action === actionType.signIn.action ?
-      this.authSvc.signIn(email, password) : this.authSvc.signUp(email, password);
+    this.action === actionType.signIn.action
+      ? this.authSvc.signIn(email, password)
+      : this.authSvc.signUp(email, password);
   }
 
   hasError(field: string): boolean {
